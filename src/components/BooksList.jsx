@@ -1,11 +1,10 @@
-import { useSelector } from "react-redux"
 import BookCard from "./BookCard"
 
-const BooksList = ({ list, aut }) =>
+const BooksList = ({ list, aut, jenres }) =>
 {
     return (
-        <div>
-            {list.map(book => <BookCard data={book} autor={aut.find(el => el.id === book.author)} key={book.id} />)}
+        <div className="bookList">
+            {list.map(book => <BookCard data={book} autor={aut.find(el => el.id === book.author)} jenre={jenres?.find(el => el.id === book.jenre[0])} key={book.id} />)}
         </div>
     )
 }

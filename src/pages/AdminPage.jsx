@@ -7,6 +7,8 @@ import { authorsApi } from "../api/authorApis"
 import { getUsers } from "../redux/slices/usersSlice"
 import { usersApi } from "../api/usersApis"
 import { NavLink } from "react-router-dom"
+import { getJenres } from "../redux/slices/jenreSlice"
+import { jenreApi } from "../api/jenreApis"
 
 const AdminPage = () =>
 {
@@ -17,6 +19,7 @@ const AdminPage = () =>
         dispatch(getBooks(booksApi))
         dispatch(getAuthors(authorsApi))
         dispatch(getUsers(usersApi))
+        dispatch(getJenres(jenreApi))
     }, [])
     return (
         <div className="adminPage">

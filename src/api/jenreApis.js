@@ -1,0 +1,1 @@
+export const jenreApi = 'http://185.18.55.254/api/v1/library/jenre_list/'
