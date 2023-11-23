@@ -50,6 +50,7 @@ const bookSlice = createSlice({
     name: 'bookSlice',
     initialState: {
         books: [],
+        info: {},
         loading: false,
         error: null,
         success: null,

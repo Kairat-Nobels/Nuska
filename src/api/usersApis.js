@@ -1,1 +1,1 @@
-export const usersApi = 'http://185.18.55.254/api/v1/authentication/user_list/'
+export const usersApi = 'https://nuska.kg/api/v1/authentication/user_list/'
