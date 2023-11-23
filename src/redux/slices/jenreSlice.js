@@ -1,78 +1,50 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const getBooks = createAsyncThunk(
-  'getBooks',
-  async function (api, { dispatch, rejectWithValue }) {
-    try {
-      const response = await fetch(api);
-      if (response.status === 200) {
-        const records = await response.json();
-        return records;
-      } else {
-        throw Error(`Error: ${response.status}`);
-      }
-    } catch (error) {
-      return rejectWithValue(error.message);
-    } finally {
+export const getJenres = createAsyncThunk(
+    "getJenres",
+    async function (api, { dispatch, rejectWithValue })
+    {
+        try {
+            const response = await fetch(api);
+            if (response.status === 200) {
+                const records = await response.json();
+                return records.results;
+            }
+            else {
+                throw Error(`Error: ${response.status}`);
+            }
+        }
+        catch (error) {
+            return rejectWithValue(error.message);
+        }
+        finally {
+
+        }
     }
-  }
-);
+)
 
-export const getOne = createAsyncThunk(
-  'getOne',
-  async function (api, { dispatch, rejectWithValue }) {
-    try {
-      const response = await fetch(api);
-      if (response.status === 200) {
-        const records = await response.json();
-        return records;
-      } else {
-        throw Error(`Error: ${response.status}`);
-      }
-    } catch (error) {
-      return rejectWithValue(error.message);
-    } finally {
-    }
-  }
-);
 
-const bookSlice = createSlice({
-    name: 'bookSlice',
+const jenreSlice = createSlice({
+    name: 'jenreSlice',
     initialState: {
-        books: [],
-        info: {},
+        jenres: [],
         loading: false,
         error: null,
         success: null,
     },
     extraReducers: builder =>
     {
-        builder.addCase(getBooks.fulfilled, (state, action) =>
+        builder.addCase(getJenres.fulfilled, (state, action) =>
         {
             state.loading = false;
-            state.books = action.payload.results;
+            state.jenres = action.payload;
         })
-        builder.addCase(getBooks.rejected, (state, action) =>
+        builder.addCase(getJenres.rejected, (state, action) =>
         {
             state.error = action.payload;
             state.loading = false;
         })
-        builder.addCase(getBooks.pending, (state, action) =>
-        {
-            state.loading = true;
-        })
-        // getOne
-        builder.addCase(getOne.fulfilled, (state, action) =>
-        {
-            state.loading = false;
-            state.info = action.payload;
-        })
-        builder.addCase(getOne.rejected, (state, action) =>
-        {
-            state.error = action.payload;
-            state.loading = false;
-        })
-        builder.addCase(getOne.pending, (state, action) =>
+        builder.addCase(getJenres.pending, (state, action) =>
         {
             state.loading = true;
         })
@@ -126,5 +98,4 @@ const bookSlice = createSlice({
     }
 })
 
-
-export default bookSlice.reducer;
+export default jenreSlice.reducer

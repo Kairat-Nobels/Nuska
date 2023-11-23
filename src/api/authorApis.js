@@ -1,1 +1,1 @@
-export const authorsApi = 'http://185.18.55.254/api/v1/library/author_list/'
+export const authorsApi = 'https://nuska.kg/api/v1/library/author_list/'

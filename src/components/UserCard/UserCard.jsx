@@ -2,8 +2,8 @@ import cls from './students.module.sass'
 import defaultAva from '../../assets/images/student/defaultAva.svg'
 
 const Students = ({ userData }) =>
-{
 
+{
     return (
         <div className={cls.wrapper}>
             <div className={cls.userCard}>
@@ -13,12 +13,11 @@ const Students = ({ userData }) =>
                     </div>
                     <div className={cls.mainInfo}>
                         <b>{userData.username}</b>
-
                     </div>
                 </div>
                 <div className={cls.middle}>
                     <div className={cls.courseInfo}>
-                        <p>email: {userData.is_superuser}</p>
+                        <p>email: {userData.username}@gmail.com</p>
                     </div>
                     <div className={cls.monthInfo}>
                         <p></p>

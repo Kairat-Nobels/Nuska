@@ -1,5 +1,5 @@
-import UserCard from '../UserCard/UserCard';
-import cls from './studentsPage.module.css';
+import UserCard from "../UserCard/UserCard";
+import cls from "./studentsPage.module.css";
 
 const UsersPage = ({ users }) => {
   return (

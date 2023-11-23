@@ -1,0 +1,1 @@
+export const jenreApi = 'https://nuska.kg/api/v1/library/jenre_list/'
